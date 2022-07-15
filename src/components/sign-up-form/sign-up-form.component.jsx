@@ -3,6 +3,7 @@ import { useState } from "react";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
+
 import "./sign-up-form.styles.scss";
 
 import {
@@ -43,7 +44,6 @@ const SignUpForm = () => {
     try {
       const res = await createAuthUserWithEmailAndPassword(email, password);
       await createUserDocumentFromAuth(res, { displayName });
-      console.log(res);
 
       resetFormFields();
     } catch (error) {

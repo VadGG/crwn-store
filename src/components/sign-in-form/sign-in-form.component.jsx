@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 import "./sign-in-form.styles.scss";
 
 import {
@@ -40,8 +41,7 @@ const SignInForm = () => {
     }
 
     try {
-      const res = await signInEmailAndPassword(email, password);
-      console.log(res)
+      await signInEmailAndPassword(email, password);
       resetFormValues();
     } catch (error) {
       console.log(error);
@@ -52,9 +52,7 @@ const SignInForm = () => {
     console.log("Sign in with google");
 
     try {
-      const userRes = await signInWithGooglePopup();
-      await createUserDocumentFromAuth(userRes);
-      console.log(userRes);
+      await signInWithGooglePopup();
     } catch (error) {
       console.log(error);
     }
