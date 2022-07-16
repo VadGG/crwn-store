@@ -10,9 +10,9 @@ const CategoryItem = ({ category }) => {
   }
 
   return (
-    <Container>
-      <BackgroundImage onClick={goToCategoryHandler} imageUrl={imageUrl} />
-      <Body onClick={goToCategoryHandler}>
+    <Container onClick={goToCategoryHandler}>
+      <BackgroundImage imageUrl={imageUrl}/>
+      <Body>
         <h2>{title}</h2>
         <p>Shop Now</p>
       </Body>
