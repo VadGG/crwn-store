@@ -11,18 +11,21 @@ import Navigation from "./routes/navigation/navigation.component";
 import Authentication from "./routes/authentication/authentication.component";
 import Checkout from "./components/checkout/checkout.component";
 
+import { checkUserSession } from "./store/user/user.action";
+
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsub = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      dispatch( setCurrentUser(user) );
-    });
+    dispatch(checkUserSession());
+    // const unsub = onAuthStateChangedListener((user) => {
+    //   if (user) {
+    //     createUserDocumentFromAuth(user);
+    //   }
+    //   dispatch( setCurrentUser(user) );
+    // });
 
-    return unsub;
+    // return unsub;
   }, []);
 
 
